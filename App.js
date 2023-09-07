@@ -1,7 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import Todoheader from "./components/Todoheader"
 import Todolist from './components/Todolist';
+
+import store  from './redux/store'
+import { Provider } from 'react-redux'
 
 export default function App() {
   const RootApp = () => {
@@ -14,9 +16,9 @@ export default function App() {
   };
 
   return (
-    <View>
+    <Provider store={store}>
       <RootApp />
-    </View>
+    </Provider>
   );
 }
 
