@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 const Todolist = () => {
     const dispatch =useDispatch(); 
     const Todos = useSelector((state) => state.tasks);
+    console.log(Todos)
     const data = [
         {
             id: 1,
@@ -19,8 +20,9 @@ const Todolist = () => {
         }
     ]
 
-    const ItemDelete = () => {
-        dispatch(deleteTask({id:id}))
+    const ItemDelete = (id) => {
+        dispatch(
+            deleteTask({id:id}))
     }
     const renderItem = ({ item }) => {
         return (
@@ -28,7 +30,7 @@ const Todolist = () => {
                 <Text style={styles.title}>{item.name}</Text>
                 <TouchableOpacity
                     style={styles.deleteButton}
-                    onPress={() => ItemDelete()}
+                    onPress={() => ItemDelete(item.id)}
                 >
                     <Ionicons name="trash" size={24} color="red" />
                 </TouchableOpacity>

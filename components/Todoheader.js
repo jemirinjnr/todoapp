@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from "react-native";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/taskSlice";
+import { addTask } from "../redux/taskSlice";
 
 
 const Todoheader = () => {
@@ -13,7 +13,7 @@ const Todoheader = () => {
         if (Todo.trim().length === 0) {
             Alert.alert("Please add a task")
         }
-        dispatch(addTodo({task: Todo}))
+        dispatch(addTask({task: Todo}))
         setTodo("");
         return;
     }
